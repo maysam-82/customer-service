@@ -36,6 +36,7 @@ const customersReducer = (
             return {
                 ...state,
                 customers: [...state.customers, action.payload],
+                isLoading: false,
             };
         case ActionTypes.DELETE_CUSTOMERS_SUCCESS:
             return {
@@ -71,6 +72,7 @@ const customersReducer = (
             return {
                 ...state,
                 customers: setSearchResult(customers, searchTerm),
+                isLoading: false,
             };
         case ActionTypes.GET_CUSTOMERS_FAIL:
         case ActionTypes.DELETE_CUSTOMERS_FAIL:
