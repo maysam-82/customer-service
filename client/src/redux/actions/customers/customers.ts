@@ -127,7 +127,10 @@ export const editCustomer = (newCustomer: ICustomer) => async (
 ) => {
     dispatch(editCustomerStart());
     try {
-        const customer = await editData<ICustomer>(`/customers`, newCustomer);
+        const customer = await editData<ICustomer>(
+            `/customers/${newCustomer.id}`,
+            newCustomer
+        );
         dispatch(editCustomerSuccess(customer));
         dispatch<any>(setToast('Customer edited.', 'success'));
     } catch (error) {
