@@ -1,0 +1,22 @@
+import React from 'react';
+
+import classes from './button.module.css';
+
+interface IButtonProps {
+    children: React.ReactNode;
+    type: 'success' | 'cancel' | 'danger';
+    handleClick?: (
+        event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ) => void;
+}
+
+function Button({ children, type, handleClick }: IButtonProps) {
+    const buttonClasses = [classes.buttonContainer, classes[type]];
+    return (
+        <button className={buttonClasses.join(' ')} onClick={handleClick}>
+            {children}
+        </button>
+    );
+}
+
+export default Button;

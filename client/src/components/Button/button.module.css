@@ -1,0 +1,25 @@
+.buttonContainer {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.625rem;
+    min-width: 10rem;
+    font-weight: bold;
+    border-radius: 0.3125rem;
+    margin: 0.625rem 0;
+}
+
+.danger {
+    background-color: #b50000;
+    color: white;
+}
+
+.cancel {
+    background-color: #888;
+    color: #333;
+}
+
+.success {
+    background-color: #009100;
+    color: white;
+}
