@@ -8,3 +8,8 @@ export async function getData<T>(url: string): Promise<T> {
     const response = await axiosInstance.get(url);
     return response.data;
 }
+
+export async function deleteData(url: string) {
+    const response = await axiosInstance.delete(url);
+    return response.data;
+}
