@@ -65,12 +65,14 @@ const customersReducer = (
                     ...state.selectedCustomer,
                     ...selectedCustomer,
                 },
+                isLoading: false,
             };
         case ActionTypes.SEARCH_CUSTOMER_SUCCESS:
             const { customers, searchTerm } = action.payload;
             return {
                 ...state,
                 customers: setSearchResult(customers, searchTerm),
+                isLoading: false,
             };
         case ActionTypes.GET_CUSTOMERS_FAIL:
         case ActionTypes.DELETE_CUSTOMERS_FAIL:
