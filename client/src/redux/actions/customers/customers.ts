@@ -2,6 +2,7 @@ import { Dispatch } from 'redux';
 import { getData } from '../../../services/customers/apis';
 import { ICustomer } from '../../../types/customers';
 import { ActionTypes } from '../actionTypes';
+import { setToast } from '../toasts/toasts';
 import {
     IGetCustomersFail,
     IGetCustomersStart,
@@ -29,5 +30,6 @@ export const getCustomers = () => async (dispatch: Dispatch) => {
         dispatch(getCustomersSuccess(customers));
     } catch (error) {
         dispatch(getCustomersFail(error.message));
+        dispatch<any>(setToast(error.message, 'danger'));
     }
 };
