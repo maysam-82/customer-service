@@ -1,0 +1,17 @@
+.toastAlert {
+    padding: 0.8rem;
+    margin: 1rem 0;
+    opacity: 0.9;
+    background: #ccc;
+    color: #333;
+}
+
+.danger {
+    background-color: #b50000;
+    color: white;
+}
+
+.success {
+    background-color: #009100;
+    color: white;
+}
