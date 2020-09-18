@@ -17,3 +17,11 @@ export const replaceCustomer = (
         customer.id === updatedCustomer.id ? updatedCustomer : customer
     );
 };
+
+export const searchCustomers = (customers: ICustomer[], searchTerm: string) => {
+    return customers.filter(
+        (customer) =>
+            customer.firstName.includes(searchTerm) ||
+            customer.lastName.includes(searchTerm)
+    );
+};

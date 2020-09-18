@@ -1,7 +1,7 @@
+import { ICustomer } from './../../../types/customers.d';
 import { ActionTypes } from './../../actions/actionTypes';
 import { CustomersActions } from '../../actions/actionTypes';
-import { ICustomer } from '../../../types/customers';
-import { removeCustomer, replaceCustomer } from './utils';
+import { removeCustomer, replaceCustomer, searchCustomers } from './utils';
 
 export interface ICustomersState {
     customers: ICustomer[] | null;
@@ -28,6 +28,7 @@ const customersReducer = (
         case ActionTypes.DELETE_CUSTOMERS_START:
         case ActionTypes.ADD_CUSTOMER_START:
         case ActionTypes.EDIT_CUSTOMER_START:
+        case ActionTypes.SEARCH_CUSTOMER_START:
             return { ...state, isLoading: true };
         case ActionTypes.GET_CUSTOMERS_SUCCESS:
             return { ...state, customers: action.payload };
@@ -65,10 +66,17 @@ const customersReducer = (
                     ...selectedCustomer,
                 },
             };
+        case ActionTypes.SEARCH_CUSTOMER_SUCCESS:
+            const { customers, searchTerm } = action.payload;
+            return {
+                ...state,
+                customers: searchCustomers(customers, searchTerm),
+            };
         case ActionTypes.GET_CUSTOMERS_FAIL:
         case ActionTypes.DELETE_CUSTOMERS_FAIL:
         case ActionTypes.ADD_CUSTOMER_FAIL:
         case ActionTypes.EDIT_CUSTOMER_FAIL:
+        case ActionTypes.SEARCH_CUSTOMER_FAIL:
             return { ...state, error: action.payload };
         default:
             return state;
