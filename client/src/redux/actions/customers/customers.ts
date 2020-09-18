@@ -132,7 +132,7 @@ export const editCustomer = (newCustomer: ICustomer) => async (
             newCustomer
         );
         dispatch(editCustomerSuccess(customer));
-        dispatch<any>(setToast('Customer edited.', 'success'));
+        dispatch<any>(setToast('Customer edited.', 'info'));
     } catch (error) {
         dispatch(editCustomerFail(error.message));
         dispatch<any>(setToast(error.message, 'danger'));
