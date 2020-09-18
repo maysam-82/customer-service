@@ -21,6 +21,9 @@ import {
     IGetCustomersFail,
     IGetCustomersStart,
     IGetCustomersSuccess,
+    ISearchCustomersFail,
+    ISearchCustomersStart,
+    ISearchCustomersSuccess,
     ISetUpdateCustomer,
 } from './customers.types';
 
@@ -147,3 +150,34 @@ export const setUpdateCustomer = (
     type: ActionTypes.SET_CUSTOMER_UPDATE,
     payload: { isEditing, selectedCustomer },
 });
+
+// Actions for searching customers
+const searchCustomersStart = (): ISearchCustomersStart => ({
+    type: ActionTypes.SEARCH_CUSTOMER_START,
+});
+
+const searchCustomersFail = (errorMessage: string): ISearchCustomersFail => ({
+    type: ActionTypes.SEARCH_CUSTOMER_FAIL,
+    payload: errorMessage,
+});
+
+const searchCustomersSuccess = (
+    customers: ICustomer[],
+    searchTerm: string
+): ISearchCustomersSuccess => ({
+    type: ActionTypes.SEARCH_CUSTOMER_SUCCESS,
+    payload: { customers, searchTerm },
+});
+
+export const searchCustomers = (searchTerm: string) => async (
+    dispatch: Dispatch
+) => {
+    dispatch(searchCustomersStart());
+    try {
+        const customers = await getData<ICustomer[]>(`/customers`);
+        dispatch(searchCustomersSuccess(customers, searchTerm));
+    } catch (error) {
+        dispatch(searchCustomersFail(error.message));
+        dispatch<any>(setToast(error.message, 'danger'));
+    }
+};

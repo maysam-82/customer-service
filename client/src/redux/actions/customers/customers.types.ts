@@ -70,3 +70,22 @@ export interface ISetUpdateCustomer {
     type: ActionTypes.SET_CUSTOMER_UPDATE;
     payload: IUpdateCustomerPayload;
 }
+
+interface ISearchPayload {
+    customers: ICustomer[];
+    searchTerm: string;
+}
+// Search interfaces
+export interface ISearchCustomersSuccess {
+    type: ActionTypes.SEARCH_CUSTOMER_SUCCESS;
+    payload: ISearchPayload;
+}
+
+export interface ISearchCustomersStart {
+    type: ActionTypes.SEARCH_CUSTOMER_START;
+}
+
+export interface ISearchCustomersFail {
+    type: ActionTypes.SEARCH_CUSTOMER_FAIL;
+    payload: string;
+}

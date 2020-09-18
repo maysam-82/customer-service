@@ -2,26 +2,26 @@
     "customers": [
         {
             "id": 1,
-            "firstName": "sample first name",
-            "lastName": "sample last name",
+            "firstName": "earth",
+            "lastName": "sky",
             "dob": "2000-01-01"
         },
         {
             "id": 2,
-            "firstName": "sample first name 1",
-            "lastName": "sample last name 1",
+            "firstName": "sky",
+            "lastName": "star",
             "dob": "2001-02-02"
         },
         {
             "id": 3,
-            "firstName": "sample first name 2",
-            "lastName": "sample last name 2",
+            "firstName": "planet",
+            "lastName": "earth",
             "dob": "2002-03-03"
         },
         {
             "id": 4,
-            "firstName": "sample first name 3",
-            "lastName": "sample last name 3 ",
+            "firstName": "river",
+            "lastName": "mountain",
             "dob": "2003-04-04"
         }
     ]

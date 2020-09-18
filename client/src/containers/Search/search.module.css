@@ -1,0 +1,37 @@
+.searchContainer {
+    width: 100%;
+    max-width: 18.75rem;
+    margin: 0 auto;
+}
+
+.searchForm {
+    padding: 0.625rem;
+    width: 100%;
+}
+
+.searchInputContainer {
+    display: flex;
+    width: 100%;
+}
+
+.searchInputContainer .searchInput {
+    width: 85%;
+    padding: 0.625rem;
+    border: 0.0625rem solid #005c94;
+    border-radius: 0.3125rem;
+    outline: none;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.searchInputContainer .searchInputIcon {
+    border: 0.0625rem solid #005c94;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 0.3125rem;
+    border-bottom-right-radius: 0.3125rem;
+    color: #ccc;
+}

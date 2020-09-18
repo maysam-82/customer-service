@@ -3,4 +3,5 @@
     border: 0.0625rem solid #005c94;
     border-radius: 0.3125rem;
     overflow-y: scroll;
+    height: 25rem;
 }

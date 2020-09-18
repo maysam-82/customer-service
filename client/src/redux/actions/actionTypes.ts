@@ -11,6 +11,9 @@ import {
     IGetCustomersFail,
     IGetCustomersStart,
     IGetCustomersSuccess,
+    ISearchCustomersFail,
+    ISearchCustomersStart,
+    ISearchCustomersSuccess,
     ISetUpdateCustomer,
 } from './customers/customers.types';
 import { IAddToast, IRemoveToast } from './toasts/toasts.types';
@@ -31,6 +34,9 @@ export enum ActionTypes {
     EDIT_CUSTOMER_START,
     EDIT_CUSTOMER_FAIL,
     SET_CUSTOMER_UPDATE,
+    SEARCH_CUSTOMER_SUCCESS,
+    SEARCH_CUSTOMER_START,
+    SEARCH_CUSTOMER_FAIL,
 }
 
 export type CustomersActions =
@@ -46,6 +52,9 @@ export type CustomersActions =
     | IEditCustomerSuccess
     | IEditCustomerFail
     | IEditCustomerStart
-    | ISetUpdateCustomer;
+    | ISetUpdateCustomer
+    | ISearchCustomersSuccess
+    | ISearchCustomersFail
+    | ISearchCustomersStart;
 
 export type ToastActions = IAddToast | IRemoveToast;
