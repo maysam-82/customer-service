@@ -5,9 +5,13 @@ import {
     IDeleteCustomerFail,
     IDeleteCustomerStart,
     IDeleteCustomerSuccess,
+    IEditCustomerFail,
+    IEditCustomerStart,
+    IEditCustomerSuccess,
     IGetCustomersFail,
     IGetCustomersStart,
     IGetCustomersSuccess,
+    ISetUpdateCustomer,
 } from './customers/customers.types';
 import { IAddToast, IRemoveToast } from './toasts/toasts.types';
 
@@ -38,6 +42,10 @@ export type CustomersActions =
     | IDeleteCustomerStart
     | IAddCustomerFail
     | IAddCustomerSuccess
-    | IAddCustomerStart;
+    | IAddCustomerStart
+    | IEditCustomerSuccess
+    | IEditCustomerFail
+    | IEditCustomerStart
+    | ISetUpdateCustomer;
 
 export type ToastActions = IAddToast | IRemoveToast;
