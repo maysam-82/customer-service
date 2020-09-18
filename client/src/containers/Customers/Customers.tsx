@@ -61,7 +61,6 @@ export function CustomersList({
             />
         ));
 
-    // TODO: Add loading spinner.
     return (
         <Fragment>
             <Search />
