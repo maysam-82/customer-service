@@ -1,8 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Toast from '../../components/Toast/Toast';
+
+import Toast from '../../components/Toast';
+import Customers from '../Customers';
+
 import { IStoreState } from '../../redux/reducers';
 import { IToast } from '../../types/toast';
+
+import classes from './app.module.css';
 
 interface IAppProps {
     toasts: IToast[];
@@ -10,8 +15,9 @@ interface IAppProps {
 
 function App({ toasts }: IAppProps) {
     return (
-        <div>
+        <div className={classes.appContainer}>
             <Toast toasts={toasts} />
+            <Customers />
         </div>
     );
 }

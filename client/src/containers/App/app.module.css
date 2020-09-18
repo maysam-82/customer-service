@@ -1,0 +1,12 @@
+.appContainer {
+    width: calc(100% - 1.25rem);
+    margin: 0 auto;
+    padding: 0.625rem 0;
+}
+
+/* Desktop */
+@media (min-width: 600px) {
+    .appContainer {
+        width: calc(100% - 4rem);
+    }
+}
