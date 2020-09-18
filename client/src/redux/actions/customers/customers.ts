@@ -27,6 +27,8 @@ import {
     ISetUpdateCustomer,
 } from './customers.types';
 
+const baseUrl = 'http://localhost:5001/customers';
+
 // Actions for fetching customers
 const getCustomersStart = (): IGetCustomersStart => ({
     type: ActionTypes.GET_CUSTOMERS_START,
@@ -45,7 +47,7 @@ const getCustomersSuccess = (customers: ICustomer[]): IGetCustomersSuccess => ({
 export const getCustomers = () => async (dispatch: Dispatch) => {
     dispatch(getCustomersStart());
     try {
-        const customers = await getData<ICustomer[]>(`/customers`);
+        const customers = await getData<ICustomer[]>(`${baseUrl}`);
         dispatch(getCustomersSuccess(customers));
     } catch (error) {
         dispatch(getCustomersFail(error.message));
@@ -73,7 +75,7 @@ export const deleteCustomer = (customerId: number) => async (
 ) => {
     dispatch(deleteCustomerStart());
     try {
-        await deleteData(`/customers/${customerId}`);
+        await deleteData(`${baseUrl}/${customerId}`);
         dispatch(deleteCustomerSuccess(customerId));
     } catch (error) {
         dispatch(deleteCustomerFail(error.message));
@@ -101,7 +103,7 @@ export const addCustomer = (newCustomer: ICustomer) => async (
 ) => {
     dispatch(addCustomerStart());
     try {
-        const customer = await postData<ICustomer>(`/customers`, newCustomer);
+        const customer = await postData<ICustomer>(`${baseUrl}`, newCustomer);
         dispatch(addCustomerSuccess(customer));
         dispatch<any>(setToast('Customer Added.', 'success'));
     } catch (error) {
@@ -131,7 +133,7 @@ export const editCustomer = (newCustomer: ICustomer) => async (
     dispatch(editCustomerStart());
     try {
         const customer = await editData<ICustomer>(
-            `/customers/${newCustomer.id}`,
+            `${baseUrl}/${newCustomer.id}`,
             newCustomer
         );
         dispatch(editCustomerSuccess(customer));
@@ -174,7 +176,7 @@ export const searchCustomers = (searchTerm: string) => async (
 ) => {
     dispatch(searchCustomersStart());
     try {
-        const customers = await getData<ICustomer[]>(`/customers`);
+        const customers = await getData<ICustomer[]>(`${baseUrl}`);
         dispatch(searchCustomersSuccess(customers, searchTerm));
     } catch (error) {
         dispatch(searchCustomersFail(error.message));
