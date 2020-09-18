@@ -18,10 +18,14 @@ export const replaceCustomer = (
     );
 };
 
-export const searchCustomers = (customers: ICustomer[], searchTerm: string) => {
-    return customers.filter(
-        (customer) =>
-            customer.firstName.includes(searchTerm) ||
-            customer.lastName.includes(searchTerm)
+export const setSearchResult = (customers: ICustomer[], searchTerm: string) => {
+    if (!customers) return [];
+    return (
+        customers &&
+        customers.filter(
+            (customer) =>
+                customer.firstName.includes(searchTerm) ||
+                customer.lastName.includes(searchTerm)
+        )
     );
 };

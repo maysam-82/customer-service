@@ -1,7 +1,7 @@
 import { ICustomer } from './../../../types/customers.d';
 import { ActionTypes } from './../../actions/actionTypes';
 import { CustomersActions } from '../../actions/actionTypes';
-import { removeCustomer, replaceCustomer, searchCustomers } from './utils';
+import { removeCustomer, replaceCustomer, setSearchResult } from './utils';
 
 export interface ICustomersState {
     customers: ICustomer[] | null;
@@ -70,7 +70,7 @@ const customersReducer = (
             const { customers, searchTerm } = action.payload;
             return {
                 ...state,
-                customers: searchCustomers(customers, searchTerm),
+                customers: setSearchResult(customers, searchTerm),
             };
         case ActionTypes.GET_CUSTOMERS_FAIL:
         case ActionTypes.DELETE_CUSTOMERS_FAIL:
