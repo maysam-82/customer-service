@@ -4,7 +4,7 @@ import classes from './button.module.css';
 
 interface IButtonProps {
     children: React.ReactNode;
-    type: 'success' | 'cancel' | 'danger';
+    type: 'success' | 'cancel' | 'danger' | 'info';
     handleClick?: (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => void;

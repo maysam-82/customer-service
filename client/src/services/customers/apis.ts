@@ -18,3 +18,8 @@ export async function postData<T>(url: string, data: T): Promise<T> {
     const response = await axiosInstance.post<T>(url, data);
     return response.data;
 }
+
+export async function editData<T>(url: string, data: T): Promise<T> {
+    const response = await axiosInstance.put<T>(url, data);
+    return response.data;
+}

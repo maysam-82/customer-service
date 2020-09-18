@@ -5,6 +5,7 @@ import Customer from '../../components/Customer';
 import {
     deleteCustomer,
     getCustomers,
+    setUpdateCustomer,
 } from '../../redux/actions/customers/customers';
 
 import { IStoreState } from '../../redux/reducers';
@@ -17,6 +18,7 @@ interface ICustomersListProps {
     isLoading: boolean;
     getCustomers: Function;
     deleteCustomer: Function;
+    setUpdateCustomer: Function;
 }
 
 export function CustomersList({
@@ -24,6 +26,7 @@ export function CustomersList({
     isLoading,
     getCustomers,
     deleteCustomer,
+    setUpdateCustomer,
 }: ICustomersListProps) {
     useEffect(() => {
         getCustomers();
@@ -33,9 +36,15 @@ export function CustomersList({
         deleteCustomer(customerId);
     };
 
-    // TODO: implement Edit logic
-    const handleEdit = (id: number) => {
-        console.log(id);
+    const handleEdit = (selectedCustomerid: number) => {
+        if (customers && customers.length > 0) {
+            const selectedCustomer = customers.find(
+                (customer) => customer.id === selectedCustomerid
+            );
+            if (selectedCustomer) {
+                setUpdateCustomer(true, selectedCustomer as ICustomer);
+            }
+        }
     };
 
     const renderCustomers =
@@ -58,6 +67,8 @@ const mapStateToProps = (state: IStoreState) => ({
     isLoading: state.customers.isLoading,
 });
 
-export default connect(mapStateToProps, { getCustomers, deleteCustomer })(
-    CustomersList
-);
+export default connect(mapStateToProps, {
+    getCustomers,
+    deleteCustomer,
+    setUpdateCustomer,
+})(CustomersList);

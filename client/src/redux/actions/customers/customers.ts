@@ -3,6 +3,7 @@ import {
     getData,
     deleteData,
     postData,
+    editData,
 } from '../../../services/customers/apis';
 import { ICustomer } from '../../../types/customers';
 import { ActionTypes } from '../actionTypes';
@@ -14,9 +15,13 @@ import {
     IDeleteCustomerFail,
     IDeleteCustomerStart,
     IDeleteCustomerSuccess,
+    IEditCustomerFail,
+    IEditCustomerStart,
+    IEditCustomerSuccess,
     IGetCustomersFail,
     IGetCustomersStart,
     IGetCustomersSuccess,
+    ISetUpdateCustomer,
 } from './customers.types';
 
 // Actions for fetching customers
@@ -101,3 +106,44 @@ export const addCustomer = (newCustomer: ICustomer) => async (
         dispatch<any>(setToast(error.message, 'danger'));
     }
 };
+
+// Actions for updating customer
+const editCustomerStart = (): IEditCustomerStart => ({
+    type: ActionTypes.EDIT_CUSTOMER_START,
+});
+
+const editCustomerFail = (errorMessage: string): IEditCustomerFail => ({
+    type: ActionTypes.EDIT_CUSTOMER_FAIL,
+    payload: errorMessage,
+});
+
+const editCustomerSuccess = (customer: ICustomer): IEditCustomerSuccess => ({
+    type: ActionTypes.EDIT_CUSTOMER_SUCCESS,
+    payload: customer,
+});
+
+export const editCustomer = (newCustomer: ICustomer) => async (
+    dispatch: Dispatch
+) => {
+    dispatch(editCustomerStart());
+    try {
+        const customer = await editData<ICustomer>(
+            `/customers/${newCustomer.id}`,
+            newCustomer
+        );
+        dispatch(editCustomerSuccess(customer));
+        dispatch<any>(setToast('Customer edited.', 'info'));
+    } catch (error) {
+        dispatch(editCustomerFail(error.message));
+        dispatch<any>(setToast(error.message, 'danger'));
+    }
+};
+
+// set a flag to enable/disable editing mode
+export const setUpdateCustomer = (
+    isEditing: boolean,
+    selectedCustomer: ICustomer
+): ISetUpdateCustomer => ({
+    type: ActionTypes.SET_CUSTOMER_UPDATE,
+    payload: { isEditing, selectedCustomer },
+});

@@ -7,3 +7,13 @@ export const removeCustomer = (
 ): ICustomer[] => {
     return customers.filter((customer) => customer.id !== deleteCustomerId);
 };
+
+// finds an old customer and replaces with updated one.
+export const replaceCustomer = (
+    customers: ICustomer[],
+    updatedCustomer: ICustomer
+): ICustomer[] => {
+    return customers.map((customer) =>
+        customer.id === updatedCustomer.id ? updatedCustomer : customer
+    );
+};
