@@ -48,8 +48,9 @@ const deleteCustomerFail = (errorMessage: string): IDeleteCustomerFail => ({
     payload: errorMessage,
 });
 
-const deleteCustomerSuccess = (): IDeleteCustomerSuccess => ({
+const deleteCustomerSuccess = (customerId: number): IDeleteCustomerSuccess => ({
     type: ActionTypes.DELETE_CUSTOMERS_SUCCESS,
+    payload: customerId,
 });
 
 export const deleteCustomer = (customerId: number) => async (
@@ -58,7 +59,7 @@ export const deleteCustomer = (customerId: number) => async (
     dispatch(deleteCustomerStart());
     try {
         await deleteData(`/customers/${customerId}`);
-        dispatch(deleteCustomerSuccess());
+        dispatch(deleteCustomerSuccess(customerId));
     } catch (error) {
         dispatch(deleteCustomerFail(error.message));
     }

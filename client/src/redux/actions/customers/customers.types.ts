@@ -19,6 +19,7 @@ export interface IGetCustomersFail {
 // Delete interfaces
 export interface IDeleteCustomerSuccess {
     type: ActionTypes.DELETE_CUSTOMERS_SUCCESS;
+    payload: number;
 }
 
 export interface IDeleteCustomerStart {
