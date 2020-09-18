@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Customer from '../../components/Customer';
+import Spinner from '../../components/Spinner';
 import {
     deleteCustomer,
     getCustomers,
@@ -64,7 +65,13 @@ export function CustomersList({
     return (
         <Fragment>
             <Search />
-            <div className={classes.customersContainer}>{renderCustomers}</div>
+            {isLoading ? (
+                <Spinner />
+            ) : (
+                <div className={classes.customersContainer}>
+                    {isLoading ? <Spinner /> : renderCustomers}
+                </div>
+            )}
         </Fragment>
     );
 }
