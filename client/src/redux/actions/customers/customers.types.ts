@@ -1,4 +1,4 @@
-import { ICustomer } from '../../../types/customers';
+import { ICustomer } from './../../../types/customers.d';
 import { ActionTypes } from '../actionTypes';
 
 // GET interfaces
@@ -28,5 +28,20 @@ export interface IDeleteCustomerStart {
 
 export interface IDeleteCustomerFail {
     type: ActionTypes.DELETE_CUSTOMERS_FAIL;
+    payload: string;
+}
+
+// Add customer interfaces
+export interface IAddCustomerSuccess {
+    type: ActionTypes.ADD_CUSTOMER_SUCCESS;
+    payload: ICustomer;
+}
+
+export interface IAddCustomerStart {
+    type: ActionTypes.ADD_CUSTOMER_START;
+}
+
+export interface IAddCustomerFail {
+    type: ActionTypes.ADD_CUSTOMER_FAIL;
     payload: string;
 }

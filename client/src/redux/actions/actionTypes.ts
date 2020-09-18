@@ -1,4 +1,7 @@
 import {
+    IAddCustomerFail,
+    IAddCustomerStart,
+    IAddCustomerSuccess,
     IDeleteCustomerFail,
     IDeleteCustomerStart,
     IDeleteCustomerSuccess,
@@ -17,6 +20,9 @@ export enum ActionTypes {
     DELETE_CUSTOMERS_SUCCESS,
     DELETE_CUSTOMERS_START,
     DELETE_CUSTOMERS_FAIL,
+    ADD_CUSTOMER_SUCCESS,
+    ADD_CUSTOMER_START,
+    ADD_CUSTOMER_FAIL,
 }
 
 export type CustomersActions =
@@ -25,6 +31,9 @@ export type CustomersActions =
     | IGetCustomersFail
     | IDeleteCustomerSuccess
     | IDeleteCustomerFail
-    | IDeleteCustomerStart;
+    | IDeleteCustomerStart
+    | IAddCustomerFail
+    | IAddCustomerSuccess
+    | IAddCustomerStart;
 
 export type ToastActions = IAddToast | IRemoveToast;
