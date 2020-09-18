@@ -22,9 +22,15 @@ const customersReducer = (
     switch (action.type) {
         case ActionTypes.GET_CUSTOMERS_START:
         case ActionTypes.DELETE_CUSTOMERS_START:
+        case ActionTypes.ADD_CUSTOMER_START:
             return { ...state, isLoading: true };
         case ActionTypes.GET_CUSTOMERS_SUCCESS:
             return { ...state, customers: action.payload };
+        case ActionTypes.ADD_CUSTOMER_SUCCESS:
+            return {
+                ...state,
+                customers: [...state.customers, action.payload],
+            };
         case ActionTypes.DELETE_CUSTOMERS_SUCCESS:
             return {
                 ...state,
@@ -36,6 +42,7 @@ const customersReducer = (
             };
         case ActionTypes.GET_CUSTOMERS_FAIL:
         case ActionTypes.DELETE_CUSTOMERS_FAIL:
+        case ActionTypes.ADD_CUSTOMER_FAIL:
             return { ...state, error: action.payload };
         default:
             return state;
