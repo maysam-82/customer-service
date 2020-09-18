@@ -54,7 +54,6 @@ export function CustomerForm({
 
         // Simple Data validation
         const { firstName, lastName, dob } = formData;
-        console.log(firstName, lastName, dob);
         if (!firstName || !lastName || !dob) {
             setToast('Invalid Data. Please enter data.', 'danger');
             return;
