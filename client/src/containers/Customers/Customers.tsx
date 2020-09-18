@@ -2,7 +2,10 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Customer from '../../components/Customer';
-import { getCustomers } from '../../redux/actions/customers/customers';
+import {
+    deleteCustomer,
+    getCustomers,
+} from '../../redux/actions/customers/customers';
 
 import { IStoreState } from '../../redux/reducers';
 import { ICustomer } from '../../types/customers';
@@ -13,21 +16,24 @@ interface ICustomersListProps {
     customers: ICustomer[] | null;
     isLoading: boolean;
     getCustomers: Function;
+    deleteCustomer: Function;
 }
 
 export function CustomersList({
     customers,
     isLoading,
     getCustomers,
+    deleteCustomer,
 }: ICustomersListProps) {
     useEffect(() => {
         getCustomers();
     }, [getCustomers]);
 
-    // TODO: implement Delete and Edit logic
-    const handleDelete = (id: number) => {
-        console.log(id);
+    const handleDelete = (customerId: number) => {
+        deleteCustomer(customerId);
     };
+
+    // TODO: implement Edit logic
     const handleEdit = (id: number) => {
         console.log(id);
     };
@@ -43,6 +49,7 @@ export function CustomersList({
                 handleEdit={handleEdit}
             />
         ));
+    // TODO: Add loading spinner.
     return <div className={classes.customersContainer}>{renderCustomers}</div>;
 }
 
@@ -51,4 +58,6 @@ const mapStateToProps = (state: IStoreState) => ({
     isLoading: state.customers.isLoading,
 });
 
-export default connect(mapStateToProps, { getCustomers })(CustomersList);
+export default connect(mapStateToProps, { getCustomers, deleteCustomer })(
+    CustomersList
+);
