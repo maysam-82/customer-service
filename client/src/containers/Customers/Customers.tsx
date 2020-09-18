@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Customer from '../../components/Customer';
@@ -10,6 +10,7 @@ import {
 
 import { IStoreState } from '../../redux/reducers';
 import { ICustomer } from '../../types/customers';
+import Search from '../Search';
 
 import classes from './customers.module.css';
 
@@ -58,8 +59,14 @@ export function CustomersList({
                 handleEdit={handleEdit}
             />
         ));
+
     // TODO: Add loading spinner.
-    return <div className={classes.customersContainer}>{renderCustomers}</div>;
+    return (
+        <Fragment>
+            <Search />
+            <div className={classes.customersContainer}>{renderCustomers}</div>
+        </Fragment>
+    );
 }
 
 const mapStateToProps = (state: IStoreState) => ({
