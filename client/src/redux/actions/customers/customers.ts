@@ -6,7 +6,7 @@ import {
     IGetCustomersFail,
     IGetCustomersStart,
     IGetCustomersSuccess,
-} from './types';
+} from './customers.types';
 
 const getCustomersStart = (): IGetCustomersStart => ({
     type: ActionTypes.GET_CUSTOMERS_START,

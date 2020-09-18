@@ -1,5 +1,5 @@
 import { ICustomer } from '../../../types/customers';
-import { ActionTypes } from './../actionTypes';
+import { ActionTypes } from '../actionTypes';
 
 // GET interfaces
 export interface IGetCustomersSuccess {

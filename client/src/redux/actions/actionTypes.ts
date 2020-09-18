@@ -2,7 +2,7 @@ import {
     IGetCustomersFail,
     IGetCustomersStart,
     IGetCustomersSuccess,
-} from './customers/types';
+} from './customers/customers.types';
 
 export enum ActionTypes {
     GET_CUSTOMERS_SUCCESS,
