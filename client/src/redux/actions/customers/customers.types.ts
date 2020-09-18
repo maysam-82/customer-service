@@ -62,7 +62,11 @@ export interface IEditCustomerFail {
 }
 
 // Update customer interfaces
+interface IUpdateCustomerPayload {
+    isEditing: boolean;
+    selectedCustomer: ICustomer;
+}
 export interface ISetUpdateCustomer {
     type: ActionTypes.SET_CUSTOMER_UPDATE;
-    payload: boolean;
+    payload: IUpdateCustomerPayload;
 }

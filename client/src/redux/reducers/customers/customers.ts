@@ -8,6 +8,7 @@ export interface ICustomersState {
     error: string;
     isLoading: boolean;
     isEditing: boolean;
+    selectedCustomer: ICustomer | null;
 }
 
 const customersInitialState: ICustomersState = {
@@ -15,6 +16,7 @@ const customersInitialState: ICustomersState = {
     error: '',
     isLoading: false,
     isEditing: false,
+    selectedCustomer: null,
 };
 
 const customersReducer = (
@@ -54,7 +56,15 @@ const customersReducer = (
                 isEditing: false,
             };
         case ActionTypes.SET_CUSTOMER_UPDATE:
-            return { ...state, isEditing: action.payload };
+            const { isEditing, selectedCustomer } = action.payload;
+            return {
+                ...state,
+                isEditing: isEditing,
+                selectedCustomer: {
+                    ...state.selectedCustomer,
+                    ...selectedCustomer,
+                },
+            };
         case ActionTypes.GET_CUSTOMERS_FAIL:
         case ActionTypes.DELETE_CUSTOMERS_FAIL:
         case ActionTypes.ADD_CUSTOMER_FAIL:

@@ -137,7 +137,10 @@ export const editCustomer = (newCustomer: ICustomer) => async (
 };
 
 // set a flag to enable/disable editing mode
-export const setUpdateCustomer = (isEditing: boolean): ISetUpdateCustomer => ({
+export const setUpdateCustomer = (
+    isEditing: boolean,
+    selectedCustomer: ICustomer
+): ISetUpdateCustomer => ({
     type: ActionTypes.SET_CUSTOMER_UPDATE,
-    payload: isEditing,
+    payload: { isEditing, selectedCustomer },
 });
