@@ -36,6 +36,7 @@ const customersReducer = (
             return {
                 ...state,
                 customers: [...state.customers, action.payload],
+                isLoading: false,
             };
         case ActionTypes.DELETE_CUSTOMERS_SUCCESS:
             return {
