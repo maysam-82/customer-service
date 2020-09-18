@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import Button from '../../components/Button';
-import { addCustomer } from '../../redux/actions/customers/customers';
+import {
+    addCustomer,
+    editCustomer,
+    setUpdateCustomer,
+} from '../../redux/actions/customers/customers';
 import { setToast } from '../../redux/actions/toasts/toasts';
 
 import { IStoreState } from '../../redux/reducers';
@@ -12,8 +16,12 @@ import classes from './customerForm.module.css';
 interface ICustomerFormProps {
     addCustomer: Function;
     setToast: Function;
+    editCustomer: Function;
+    setUpdateCustomer: Function;
     isLoading: boolean;
     customers: ICustomer[] | null;
+    selectedCustomer: ICustomer | null;
+    isEditing: boolean;
 }
 
 interface ICustomerFormState {
@@ -28,13 +36,32 @@ export function CustomerForm({
     setToast,
     isLoading,
     customers,
+    selectedCustomer,
+    isEditing,
+    setUpdateCustomer,
+    editCustomer,
 }: ICustomerFormProps) {
     const initialState: ICustomerFormState = {
         firstName: '',
         lastName: '',
         dob: '',
     };
+
     const [formData, setFormData] = useState<ICustomerFormState>(initialState);
+
+    useEffect(() => {
+        if (isEditing && selectedCustomer) {
+            const selectedCustomerData: ICustomerFormState = {
+                firstName: selectedCustomer.firstName,
+                lastName: selectedCustomer.lastName,
+                dob: selectedCustomer.dob,
+            };
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                ...selectedCustomerData,
+            }));
+        }
+    }, [isEditing, selectedCustomer]);
 
     const handleChange = ({
         target: { name, value },
@@ -47,6 +74,12 @@ export function CustomerForm({
     ) => {
         event.preventDefault();
         setFormData({ ...formData, ...initialState });
+        setUpdateCustomer(false, {
+            firstName: '',
+            lastName: '',
+            id: -1,
+            dob: '',
+        });
     };
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -59,19 +92,37 @@ export function CustomerForm({
             return;
         }
 
-        // Submit data
-        const newCustomerId =
-            customers && customers.length > 0 ? customers.length + 1 : 0;
-        const customer: ICustomer = {
-            id: newCustomerId,
-            firstName,
-            lastName,
-            dob,
-        };
-        addCustomer(customer);
+        // If we are not in editing mode
+        let newCustomer: ICustomer;
+        if (!isEditing) {
+            // Submit data
+            const newCustomerId =
+                customers && customers.length > 0 ? customers.length + 1 : 0;
+            newCustomer = {
+                id: newCustomerId,
+                firstName,
+                lastName,
+                dob,
+            };
+            addCustomer(newCustomer);
+        } else {
+            // Edit data
+            const selectedCustomerId = selectedCustomer && selectedCustomer.id;
+            if (!selectedCustomerId) return;
+            newCustomer = {
+                id: selectedCustomerId,
+                firstName,
+                lastName,
+                dob,
+            };
+            editCustomer(newCustomer);
+        }
+        setFormData({ ...formData, ...initialState });
     };
 
     const { firstName, lastName, dob } = formData;
+
+    // TODO: Add spinner in loading mode
     return (
         <form
             className={classes.customerFormContainer}
@@ -111,7 +162,9 @@ export function CustomerForm({
                 />
             </div>
             <div className={classes.buttonContainer}>
-                <Button type="success">Add</Button>
+                <Button type={isEditing ? 'info' : 'success'}>
+                    {!isEditing ? 'Add' : 'Edit'}
+                </Button>
                 <Button handleClick={handleCancel} type="cancel">
                     Cancel
                 </Button>
@@ -123,8 +176,13 @@ export function CustomerForm({
 const mapStateToProps = (state: IStoreState) => ({
     customers: state.customers.customers,
     isLoading: state.customers.isLoading,
+    selectedCustomer: state.customers.selectedCustomer,
+    isEditing: state.customers.isEditing,
 });
 
-export default connect(mapStateToProps, { addCustomer, setToast })(
-    CustomerForm
-);
+export default connect(mapStateToProps, {
+    addCustomer,
+    setToast,
+    setUpdateCustomer,
+    editCustomer,
+})(CustomerForm);
