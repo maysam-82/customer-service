@@ -1,7 +1,20 @@
 import React, { useState } from 'react';
-import Button from '../../components/Button/Button';
+import { connect } from 'react-redux';
+
+import Button from '../../components/Button';
+import { addCustomer } from '../../redux/actions/customers/customers';
+import { setToast } from '../../redux/actions/toasts/toasts';
+
+import { IStoreState } from '../../redux/reducers';
+import { ICustomer } from '../../types/customers';
 
 import classes from './customerForm.module.css';
+interface ICustomerFormProps {
+    addCustomer: Function;
+    setToast: Function;
+    isLoading: boolean;
+    customers: ICustomer[] | null;
+}
 
 interface ICustomerFormState {
     [x: string]: string;
@@ -10,7 +23,12 @@ interface ICustomerFormState {
     dob: string;
 }
 
-function CustomerForm() {
+export function CustomerForm({
+    addCustomer,
+    setToast,
+    isLoading,
+    customers,
+}: ICustomerFormProps) {
     const initialState: ICustomerFormState = {
         firstName: '',
         lastName: '',
@@ -33,10 +51,25 @@ function CustomerForm() {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        // TODO: Data validation
+
+        // Simple Data validation
+        const { firstName, lastName, dob } = formData;
+        console.log(firstName, lastName, dob);
+        if (!firstName || !lastName || !dob) {
+            setToast('Invalid Data. Please enter data.', 'danger');
+            return;
+        }
 
         // Submit data
-        console.log('submit');
+        const newCustomerId =
+            customers && customers.length > 0 ? customers.length + 1 : 0;
+        const customer: ICustomer = {
+            id: newCustomerId,
+            firstName,
+            lastName,
+            dob,
+        };
+        addCustomer(customer);
     };
 
     const { firstName, lastName, dob } = formData;
@@ -88,4 +121,11 @@ function CustomerForm() {
     );
 }
 
-export default CustomerForm;
+const mapStateToProps = (state: IStoreState) => ({
+    customers: state.customers.customers,
+    isLoading: state.customers.isLoading,
+});
+
+export default connect(mapStateToProps, { addCustomer, setToast })(
+    CustomerForm
+);

@@ -95,6 +95,7 @@ export const addCustomer = (newCustomer: ICustomer) => async (
     try {
         const customer = await postData<ICustomer>(`/customers`, newCustomer);
         dispatch(addCustomerSuccess(customer));
+        dispatch<any>(setToast('Customer Added.', 'success'));
     } catch (error) {
         dispatch(addCustomerFail(error.message));
         dispatch<any>(setToast(error.message, 'danger'));
