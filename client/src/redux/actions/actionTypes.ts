@@ -23,6 +23,10 @@ export enum ActionTypes {
     ADD_CUSTOMER_SUCCESS,
     ADD_CUSTOMER_START,
     ADD_CUSTOMER_FAIL,
+    EDIT_CUSTOMER_SUCCESS,
+    EDIT_CUSTOMER_START,
+    EDIT_CUSTOMER_FAIL,
+    SET_CUSTOMER_UPDATE,
 }
 
 export type CustomersActions =

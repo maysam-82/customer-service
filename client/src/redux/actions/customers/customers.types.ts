@@ -45,3 +45,24 @@ export interface IAddCustomerFail {
     type: ActionTypes.ADD_CUSTOMER_FAIL;
     payload: string;
 }
+
+// Edit customer interfaces
+export interface IEditCustomerSuccess {
+    type: ActionTypes.EDIT_CUSTOMER_SUCCESS;
+    payload: ICustomer;
+}
+
+export interface IEditCustomerStart {
+    type: ActionTypes.EDIT_CUSTOMER_START;
+}
+
+export interface IEditCustomerFail {
+    type: ActionTypes.EDIT_CUSTOMER_FAIL;
+    payload: string;
+}
+
+// Update customer interfaces
+export interface ISetUpdateCustomer {
+    type: ActionTypes.SET_CUSTOMER_UPDATE;
+    payload: boolean;
+}
