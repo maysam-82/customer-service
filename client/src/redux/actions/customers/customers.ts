@@ -1,9 +1,16 @@
 import { Dispatch } from 'redux';
-import { getData, deleteData } from '../../../services/customers/apis';
+import {
+    getData,
+    deleteData,
+    postData,
+} from '../../../services/customers/apis';
 import { ICustomer } from '../../../types/customers';
 import { ActionTypes } from '../actionTypes';
 import { setToast } from '../toasts/toasts';
 import {
+    IAddCustomerFail,
+    IAddCustomerStart,
+    IAddCustomerSuccess,
     IDeleteCustomerFail,
     IDeleteCustomerStart,
     IDeleteCustomerSuccess,
@@ -62,6 +69,35 @@ export const deleteCustomer = (customerId: number) => async (
         dispatch(deleteCustomerSuccess(customerId));
     } catch (error) {
         dispatch(deleteCustomerFail(error.message));
+        dispatch<any>(setToast(error.message, 'danger'));
+    }
+};
+
+// Actions for adding customer
+const addCustomerStart = (): IAddCustomerStart => ({
+    type: ActionTypes.ADD_CUSTOMER_START,
+});
+
+const addCustomerFail = (errorMessage: string): IAddCustomerFail => ({
+    type: ActionTypes.ADD_CUSTOMER_FAIL,
+    payload: errorMessage,
+});
+
+const addCustomerSuccess = (customer: ICustomer): IAddCustomerSuccess => ({
+    type: ActionTypes.ADD_CUSTOMER_SUCCESS,
+    payload: customer,
+});
+
+export const addCustomer = (newCustomer: ICustomer) => async (
+    dispatch: Dispatch
+) => {
+    dispatch(addCustomerStart());
+    try {
+        const customer = await postData<ICustomer>(`/customers`, newCustomer);
+        dispatch(addCustomerSuccess(customer));
+        dispatch<any>(setToast('Customer Added.', 'success'));
+    } catch (error) {
+        dispatch(addCustomerFail(error.message));
         dispatch<any>(setToast(error.message, 'danger'));
     }
 };

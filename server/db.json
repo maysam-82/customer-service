@@ -4,25 +4,25 @@
             "id": 1,
             "firstName": "sample first name",
             "lastName": "sample last name",
-            "dob": "sample date of birth"
+            "dob": "2000-01-01"
         },
         {
             "id": 2,
             "firstName": "sample first name 1",
             "lastName": "sample last name 1",
-            "dob": "sample date of birth 1"
+            "dob": "2001-02-02"
         },
         {
             "id": 3,
             "firstName": "sample first name 2",
             "lastName": "sample last name 2",
-            "dob": "sample date of birth 2"
+            "dob": "2002-03-03"
         },
         {
             "id": 4,
             "firstName": "sample first name 3",
             "lastName": "sample last name 3 ",
-            "dob": "sample date of birth 3"
+            "dob": "2003-04-04"
         }
     ]
 }

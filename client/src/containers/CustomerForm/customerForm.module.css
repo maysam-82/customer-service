@@ -1,0 +1,37 @@
+.customerFormContainer {
+    max-width: 18.75rem;
+    width: 100%;
+    margin: 0.625rem auto;
+    margin-bottom: 0;
+    padding: 0.625rem;
+    border: 0.0625rem solid #005c94;
+    margin-bottom: 0.625rem;
+    border-radius: 0.3125rem;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.buttonContainer button:first-child {
+    margin-bottom: 0;
+}
+
+.inputContainer {
+    width: 100%;
+    padding: 0.625rem;
+}
+.inputContainer label {
+    width: 100%;
+    display: block;
+    margin-bottom: 0.625rem;
+}
+.inputContainer input {
+    width: 100%;
+    padding: 0.625rem;
+    border: 0.0625rem solid #005c94;
+    border-radius: 0.3125rem;
+    outline: none;
+}
