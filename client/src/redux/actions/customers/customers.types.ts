@@ -71,10 +71,14 @@ export interface ISetUpdateCustomer {
     payload: IUpdateCustomerPayload;
 }
 
+interface ISearchPayload {
+    customers: ICustomer[];
+    searchTerm: string;
+}
 // Search interfaces
 export interface ISearchCustomersSuccess {
     type: ActionTypes.SEARCH_CUSTOMER_SUCCESS;
-    payload: ICustomer[];
+    payload: ISearchPayload;
 }
 
 export interface ISearchCustomersStart {

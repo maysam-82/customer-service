@@ -162,17 +162,20 @@ const searchCustomersFail = (errorMessage: string): ISearchCustomersFail => ({
 });
 
 const searchCustomersSuccess = (
-    customers: ICustomer[]
+    customers: ICustomer[],
+    searchTerm: string
 ): ISearchCustomersSuccess => ({
     type: ActionTypes.SEARCH_CUSTOMER_SUCCESS,
-    payload: customers,
+    payload: { customers, searchTerm },
 });
 
-export const searchCustomers = () => async (dispatch: Dispatch) => {
+export const searchCustomers = (searchTerm: string) => async (
+    dispatch: Dispatch
+) => {
     dispatch(searchCustomersStart());
     try {
         const customers = await getData<ICustomer[]>(`/customers`);
-        dispatch(searchCustomersSuccess(customers));
+        dispatch(searchCustomersSuccess(customers, searchTerm));
     } catch (error) {
         dispatch(searchCustomersFail(error.message));
         dispatch<any>(setToast(error.message, 'danger'));
