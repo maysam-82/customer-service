@@ -65,7 +65,6 @@ const customersReducer = (
                     ...state.selectedCustomer,
                     ...selectedCustomer,
                 },
-                isLoading: false,
             };
         case ActionTypes.SEARCH_CUSTOMER_SUCCESS:
             const { customers, searchTerm } = action.payload;
