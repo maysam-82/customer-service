@@ -62,5 +62,6 @@ export const deleteCustomer = (customerId: number) => async (
         dispatch(deleteCustomerSuccess(customerId));
     } catch (error) {
         dispatch(deleteCustomerFail(error.message));
+        dispatch<any>(setToast(error.message, 'danger'));
     }
 };
