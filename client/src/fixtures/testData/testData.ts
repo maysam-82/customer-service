@@ -1,0 +1,20 @@
+export const testCustomers = [
+    {
+        id: 1,
+        firstName: 'earth',
+        lastName: 'sky',
+        dob: '2000-01-01',
+    },
+    {
+        id: 2,
+        firstName: 'sky',
+        lastName: 'star',
+        dob: '2001-02-02',
+    },
+    {
+        id: 3,
+        firstName: 'planet',
+        lastName: 'earth',
+        dob: '2002-03-03',
+    },
+];

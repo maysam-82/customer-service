@@ -4,12 +4,12 @@ import { ActionTypes } from './../actionTypes';
 import { IAddToast, IRemoveToast } from './toasts.types';
 import { getUniqueId } from './utils';
 
-const addToast = (toast: IToast): IAddToast => ({
+export const addToast = (toast: IToast): IAddToast => ({
     type: ActionTypes.ADD_TOAST,
     payload: toast,
 });
 
-const removeToast = (toastId: string): IRemoveToast => ({
+export const removeToast = (toastId: string): IRemoveToast => ({
     type: ActionTypes.REMOVE_TOAST,
     payload: toastId,
 });

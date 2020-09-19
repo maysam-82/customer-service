@@ -30,16 +30,18 @@ import {
 const baseUrl = 'http://localhost:5001/customers';
 
 // Actions for fetching customers
-const getCustomersStart = (): IGetCustomersStart => ({
+export const getCustomersStart = (): IGetCustomersStart => ({
     type: ActionTypes.GET_CUSTOMERS_START,
 });
 
-const getCustomersFail = (errorMessage: string): IGetCustomersFail => ({
+export const getCustomersFail = (errorMessage: string): IGetCustomersFail => ({
     type: ActionTypes.GET_CUSTOMERS_FAIL,
     payload: errorMessage,
 });
 
-const getCustomersSuccess = (customers: ICustomer[]): IGetCustomersSuccess => ({
+export const getCustomersSuccess = (
+    customers: ICustomer[]
+): IGetCustomersSuccess => ({
     type: ActionTypes.GET_CUSTOMERS_SUCCESS,
     payload: customers,
 });
@@ -56,16 +58,20 @@ export const getCustomers = () => async (dispatch: Dispatch) => {
 };
 
 // Actions for deleting customer
-const deleteCustomerStart = (): IDeleteCustomerStart => ({
+export const deleteCustomerStart = (): IDeleteCustomerStart => ({
     type: ActionTypes.DELETE_CUSTOMERS_START,
 });
 
-const deleteCustomerFail = (errorMessage: string): IDeleteCustomerFail => ({
+export const deleteCustomerFail = (
+    errorMessage: string
+): IDeleteCustomerFail => ({
     type: ActionTypes.DELETE_CUSTOMERS_FAIL,
     payload: errorMessage,
 });
 
-const deleteCustomerSuccess = (customerId: number): IDeleteCustomerSuccess => ({
+export const deleteCustomerSuccess = (
+    customerId: number
+): IDeleteCustomerSuccess => ({
     type: ActionTypes.DELETE_CUSTOMERS_SUCCESS,
     payload: customerId,
 });
@@ -84,16 +90,18 @@ export const deleteCustomer = (customerId: number) => async (
 };
 
 // Actions for adding customer
-const addCustomerStart = (): IAddCustomerStart => ({
+export const addCustomerStart = (): IAddCustomerStart => ({
     type: ActionTypes.ADD_CUSTOMER_START,
 });
 
-const addCustomerFail = (errorMessage: string): IAddCustomerFail => ({
+export const addCustomerFail = (errorMessage: string): IAddCustomerFail => ({
     type: ActionTypes.ADD_CUSTOMER_FAIL,
     payload: errorMessage,
 });
 
-const addCustomerSuccess = (customer: ICustomer): IAddCustomerSuccess => ({
+export const addCustomerSuccess = (
+    customer: ICustomer
+): IAddCustomerSuccess => ({
     type: ActionTypes.ADD_CUSTOMER_SUCCESS,
     payload: customer,
 });
@@ -113,16 +121,18 @@ export const addCustomer = (newCustomer: ICustomer) => async (
 };
 
 // Actions for updating customer
-const editCustomerStart = (): IEditCustomerStart => ({
+export const editCustomerStart = (): IEditCustomerStart => ({
     type: ActionTypes.EDIT_CUSTOMER_START,
 });
 
-const editCustomerFail = (errorMessage: string): IEditCustomerFail => ({
+export const editCustomerFail = (errorMessage: string): IEditCustomerFail => ({
     type: ActionTypes.EDIT_CUSTOMER_FAIL,
     payload: errorMessage,
 });
 
-const editCustomerSuccess = (customer: ICustomer): IEditCustomerSuccess => ({
+export const editCustomerSuccess = (
+    customer: ICustomer
+): IEditCustomerSuccess => ({
     type: ActionTypes.EDIT_CUSTOMER_SUCCESS,
     payload: customer,
 });
@@ -154,16 +164,18 @@ export const setUpdateCustomer = (
 });
 
 // Actions for searching customers
-const searchCustomersStart = (): ISearchCustomersStart => ({
+export const searchCustomersStart = (): ISearchCustomersStart => ({
     type: ActionTypes.SEARCH_CUSTOMER_START,
 });
 
-const searchCustomersFail = (errorMessage: string): ISearchCustomersFail => ({
+export const searchCustomersFail = (
+    errorMessage: string
+): ISearchCustomersFail => ({
     type: ActionTypes.SEARCH_CUSTOMER_FAIL,
     payload: errorMessage,
 });
 
-const searchCustomersSuccess = (
+export const searchCustomersSuccess = (
     customers: ICustomer[],
     searchTerm: string
 ): ISearchCustomersSuccess => ({
