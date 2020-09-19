@@ -18,7 +18,10 @@ export const replaceCustomer = (
     );
 };
 
-export const setSearchResult = (customers: ICustomer[], searchTerm: string) => {
+export const setSearchResult = (
+    customers: ICustomer[] | null,
+    searchTerm: string
+) => {
     if (!customers) return [];
     return (
         customers &&
