@@ -35,11 +35,8 @@ const testErrorMessage = 'test error';
 
 describe('customers reducer', () => {
     describe('default action', () => {
-        it('should return current state', () => {
-            const newState = customersReducer(
-                customersTestInitialState,
-                '' as any
-            );
+        it('should return initial state', () => {
+            const newState = customersReducer(undefined, {} as any);
             expect(newState).toEqual(customersTestInitialState);
         });
     });

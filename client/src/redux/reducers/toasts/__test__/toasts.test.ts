@@ -18,8 +18,8 @@ const testToasts: IToast[] = [testToast];
 
 describe('toasts reducer', () => {
     describe('default action', () => {
-        it('should return current state', () => {
-            const newState = toastsReducer(toastsTestInitialState, '' as any);
+        it('should return initial state', () => {
+            const newState = toastsReducer(undefined, {} as any);
             expect(newState).toEqual(toastsTestInitialState);
         });
         it('should handle ', () => {
