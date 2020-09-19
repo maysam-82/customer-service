@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Customer Componenr should render 1`] = `
+<li
+  className="customerContainer"
+>
+  <ul
+    className="customerDetails"
+  >
+    <li>
+      <span>
+        Firstname:
+      </span>
+       
+      sample first name
+    </li>
+    <li>
+      <span>
+        Lastname:
+      </span>
+       
+      sample last name
+    </li>
+    <li>
+      <span>
+        Date Of Birth:
+      </span>
+       
+      1200-00-00
+    </li>
+  </ul>
+  <ul
+    className="customerActionContainer"
+  >
+    <li
+      className="customerActionDelete"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-trash-alt"
+      />
+    </li>
+    <li
+      className="customerActionEdit"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-user-edit"
+      />
+    </li>
+  </ul>
+</li>
+`;

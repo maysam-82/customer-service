@@ -3,7 +3,7 @@ import { IToast } from '../../types/toast';
 
 import classes from './toast.module.css';
 
-interface IToastProps {
+export interface IToastProps {
     toasts: IToast[];
 }
 

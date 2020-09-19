@@ -4,7 +4,7 @@ import classes from './customer.module.css';
 
 import { ICustomer } from '../../types/customers';
 
-interface ICustomerProps extends ICustomer {
+export interface ICustomerProps extends ICustomer {
     handleDelete: (id: number) => void;
     handleEdit: (id: number) => void;
 }
