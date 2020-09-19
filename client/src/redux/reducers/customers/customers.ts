@@ -79,7 +79,7 @@ const customersReducer = (
         case ActionTypes.ADD_CUSTOMER_FAIL:
         case ActionTypes.EDIT_CUSTOMER_FAIL:
         case ActionTypes.SEARCH_CUSTOMER_FAIL:
-            return { ...state, error: action.payload };
+            return { ...state, error: action.payload, isLoading: false };
         default:
             return state;
     }
