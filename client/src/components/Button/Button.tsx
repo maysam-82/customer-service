@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './button.module.css';
 
-interface IButtonProps {
+export interface IButtonProps {
     children: React.ReactNode;
     type: 'success' | 'cancel' | 'danger' | 'info';
     handleClick?: (
