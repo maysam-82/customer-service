@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast Component should render correctly 1`] = `
+<Toast
+  toasts={
+    Array [
+      Object {
+        "toastId": "1001",
+        "toastMessage": "1001 test message",
+        "toastType": "info",
+      },
+      Object {
+        "toastId": "1002",
+        "toastMessage": "1002 test message",
+        "toastType": "success",
+      },
+      Object {
+        "toastId": "1003",
+        "toastMessage": "1003 test message",
+        "toastType": "danger",
+      },
+    ]
+  }
+>
+  <div>
+    <div
+      className="toastAlert info"
+      key="1001"
+    >
+      1001 test message
+    </div>
+    <div
+      className="toastAlert success"
+      key="1002"
+    >
+      1002 test message
+    </div>
+    <div
+      className="toastAlert danger"
+      key="1003"
+    >
+      1003 test message
+    </div>
+  </div>
+</Toast>
+`;
