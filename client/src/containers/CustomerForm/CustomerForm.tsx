@@ -96,10 +96,8 @@ export function CustomerForm({
         let newCustomer: ICustomer;
         if (!isEditing) {
             // Submit data
-            const newCustomerId =
-                customers && customers.length > 0 ? customers.length + 1 : 0;
             newCustomer = {
-                id: newCustomerId,
+                id: Date.now(),
                 firstName,
                 lastName,
                 dob,
@@ -122,7 +120,6 @@ export function CustomerForm({
 
     const { firstName, lastName, dob } = formData;
 
-    // TODO: Add spinner in loading mode
     return (
         <form
             className={classes.customerFormContainer}

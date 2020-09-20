@@ -149,24 +149,6 @@ describe('CustomerForm Component', () => {
                 wrapper.find('#dob').simulate('change', inputData.dob.event);
             });
 
-            describe('If `customers` array is empty', () => {
-                beforeEach(() => {
-                    wrapper.setProps({
-                        ...testCutomerFormProps,
-                        customers: null,
-                    });
-                    wrapper.update();
-                    wrapper.find('form').simulate('submit', inputData.form);
-                });
-                it('should add cutomer with `id` equals to 0', () => {
-                    expect(
-                        testCutomerFormProps.addCustomer
-                    ).toHaveBeenCalledWith({
-                        ...testCustomers[2],
-                        id: 0,
-                    });
-                });
-            });
             describe('If `customers` array is not empty', () => {
                 beforeEach(() => {
                     wrapper.setProps({
@@ -178,12 +160,13 @@ describe('CustomerForm Component', () => {
                 });
 
                 it('should invoke `addCustomer` action', () => {
-                    expect(
-                        testCutomerFormProps.addCustomer
-                    ).toHaveBeenCalledWith({
-                        ...testCustomers[2],
-                        id: 4,
-                    });
+                    expect(testCutomerFormProps.addCustomer).toBeCalledWith(
+                        expect.objectContaining({
+                            firstName: testCustomers[2].firstName,
+                            lastName: testCustomers[2].lastName,
+                            dob: testCustomers[2].dob,
+                        })
+                    );
                 });
             });
 
