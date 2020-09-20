@@ -1,63 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Search Component should render correctly 1`] = `
-<Root>
-  <Provider
-    store={
-      Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      }
+<Search
+  searchCustomers={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
     }
+  }
+>
+  <div
+    className="searchContainer"
   >
-    <Search
-      searchCustomers={
-        [MockFunction] {
-          "calls": Array [
-            Array [
-              "",
-            ],
-          ],
-          "results": Array [
-            Object {
-              "type": "return",
-              "value": undefined,
-            },
-          ],
-        }
-      }
+    <form
+      className="searchForm"
+      onSubmit={[Function]}
     >
       <div
-        className="searchContainer"
+        className="searchInputContainer"
       >
-        <form
-          className="searchForm"
-          onSubmit={[Function]}
+        <input
+          className="searchInput"
+          onChange={[Function]}
+          placeholder="Firstname or Lastname"
+          type="text"
+          value=""
+        />
+        <div
+          className="searchInputIcon"
         >
-          <div
-            className="searchInputContainer"
-          >
-            <input
-              className="searchInput"
-              onChange={[Function]}
-              placeholder="Firstname or Lastname"
-              type="text"
-              value=""
-            />
-            <div
-              className="searchInputIcon"
-            >
-              <i
-                className="fas fa-search"
-              />
-            </div>
-          </div>
-        </form>
+          <i
+            className="fas fa-search"
+          />
+        </div>
       </div>
-    </Search>
-  </Provider>
-</Root>
+    </form>
+  </div>
+</Search>
 `;
