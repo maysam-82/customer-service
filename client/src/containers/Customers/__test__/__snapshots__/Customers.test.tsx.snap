@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Customers component should render correctly 1`] = `
+<Customers
+  customers={
+    Array [
+      Object {
+        "dob": "2000-01-01",
+        "firstName": "earth",
+        "id": 1,
+        "lastName": "sky",
+      },
+      Object {
+        "dob": "2001-02-02",
+        "firstName": "sky",
+        "id": 2,
+        "lastName": "star",
+      },
+      Object {
+        "dob": "2002-03-03",
+        "firstName": "planet",
+        "id": 3,
+        "lastName": "earth",
+      },
+    ]
+  }
+  deleteCustomer={[MockFunction]}
+  getCustomers={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  isLoading={false}
+  setUpdateCustomer={[MockFunction]}
+>
+  <Connect(Search)>
+    <Search
+      searchCustomers={[Function]}
+    >
+      <div
+        className="searchContainer"
+      >
+        <form
+          className="searchForm"
+          onSubmit={[Function]}
+        >
+          <div
+            className="searchInputContainer"
+          >
+            <input
+              className="searchInput"
+              onChange={[Function]}
+              placeholder="Firstname or Lastname"
+              type="text"
+              value=""
+            />
+            <div
+              className="searchInputIcon"
+            >
+              <i
+                className="fas fa-search"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </Search>
+  </Connect(Search)>
+  <div
+    className="customersContainer"
+  >
+    <Customer
+      dob="2000-01-01"
+      firstName="earth"
+      handleDelete={[Function]}
+      handleEdit={[Function]}
+      id={1}
+      key="1"
+      lastName="sky"
+    >
+      <li
+        className="customerContainer"
+      >
+        <ul
+          className="customerDetails"
+        >
+          <li>
+            <span>
+              Firstname:
+            </span>
+             
+            earth
+          </li>
+          <li>
+            <span>
+              Lastname:
+            </span>
+             
+            sky
+          </li>
+          <li>
+            <span>
+              Date Of Birth:
+            </span>
+             
+            2000-01-01
+          </li>
+        </ul>
+        <ul
+          className="customerActionContainer"
+        >
+          <li
+            className="customerActionDelete"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-trash-alt"
+            />
+          </li>
+          <li
+            className="customerActionEdit"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-user-edit"
+            />
+          </li>
+        </ul>
+      </li>
+    </Customer>
+    <Customer
+      dob="2001-02-02"
+      firstName="sky"
+      handleDelete={[Function]}
+      handleEdit={[Function]}
+      id={2}
+      key="2"
+      lastName="star"
+    >
+      <li
+        className="customerContainer"
+      >
+        <ul
+          className="customerDetails"
+        >
+          <li>
+            <span>
+              Firstname:
+            </span>
+             
+            sky
+          </li>
+          <li>
+            <span>
+              Lastname:
+            </span>
+             
+            star
+          </li>
+          <li>
+            <span>
+              Date Of Birth:
+            </span>
+             
+            2001-02-02
+          </li>
+        </ul>
+        <ul
+          className="customerActionContainer"
+        >
+          <li
+            className="customerActionDelete"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-trash-alt"
+            />
+          </li>
+          <li
+            className="customerActionEdit"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-user-edit"
+            />
+          </li>
+        </ul>
+      </li>
+    </Customer>
+    <Customer
+      dob="2002-03-03"
+      firstName="planet"
+      handleDelete={[Function]}
+      handleEdit={[Function]}
+      id={3}
+      key="3"
+      lastName="earth"
+    >
+      <li
+        className="customerContainer"
+      >
+        <ul
+          className="customerDetails"
+        >
+          <li>
+            <span>
+              Firstname:
+            </span>
+             
+            planet
+          </li>
+          <li>
+            <span>
+              Lastname:
+            </span>
+             
+            earth
+          </li>
+          <li>
+            <span>
+              Date Of Birth:
+            </span>
+             
+            2002-03-03
+          </li>
+        </ul>
+        <ul
+          className="customerActionContainer"
+        >
+          <li
+            className="customerActionDelete"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-trash-alt"
+            />
+          </li>
+          <li
+            className="customerActionEdit"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-user-edit"
+            />
+          </li>
+        </ul>
+      </li>
+    </Customer>
+  </div>
+</Customers>
+`;
