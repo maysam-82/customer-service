@@ -9,11 +9,7 @@ describe('Search Component', () => {
     const searchCustomers = jest.fn();
 
     beforeEach(() => {
-        wrapper = mount(
-            <Root>
-                <Search searchCustomers={searchCustomers} />
-            </Root>
-        );
+        wrapper = mount(<Search searchCustomers={searchCustomers} />);
     });
 
     afterEach(() => {
