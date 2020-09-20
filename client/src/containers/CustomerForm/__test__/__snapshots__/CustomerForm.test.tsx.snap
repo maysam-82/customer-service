@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerForm Component should render currectly 1`] = `
+<CustomerForm
+  addCustomer={[MockFunction]}
+  customers={
+    Array [
+      Object {
+        "dob": "2000-01-01",
+        "firstName": "earth",
+        "id": 1,
+        "lastName": "sky",
+      },
+      Object {
+        "dob": "2001-02-02",
+        "firstName": "sky",
+        "id": 2,
+        "lastName": "star",
+      },
+      Object {
+        "dob": "2002-03-03",
+        "firstName": "planet",
+        "id": 3,
+        "lastName": "earth",
+      },
+    ]
+  }
+  editCustomer={[MockFunction]}
+  isEditing={false}
+  isLoading={false}
+  selectedCustomer={null}
+  setToast={[MockFunction]}
+  setUpdateCustomer={[MockFunction]}
+>
+  <form
+    className="customerFormContainer"
+    onSubmit={[Function]}
+  >
+    <div
+      className="inputContainer"
+    >
+      <label
+        htmlFor="firstName"
+      >
+        First Name
+      </label>
+      <input
+        className="inputText"
+        id="firstName"
+        name="firstName"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="inputContainer"
+    >
+      <label
+        htmlFor="lastName"
+      >
+        Last Name
+      </label>
+      <input
+        className="inputText"
+        id="lastName"
+        name="lastName"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="inputContainer"
+    >
+      <label
+        htmlFor="dob"
+      >
+        Date Of Birth
+      </label>
+      <input
+        className="inputText"
+        id="dob"
+        name="dob"
+        onChange={[Function]}
+        type="date"
+        value=""
+      />
+    </div>
+    <div
+      className="buttonContainer"
+    >
+      <Button
+        type="success"
+      >
+        <button
+          className="buttonContainer success"
+        >
+          Add
+        </button>
+      </Button>
+      <Button
+        handleClick={[Function]}
+        type="cancel"
+      >
+        <button
+          className="buttonContainer cancel"
+          onClick={[Function]}
+        >
+          Cancel
+        </button>
+      </Button>
+    </div>
+  </form>
+</CustomerForm>
+`;

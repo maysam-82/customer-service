@@ -14,7 +14,7 @@ interface IAppProps {
     toasts: IToast[];
 }
 
-function App({ toasts }: IAppProps) {
+export function App({ toasts }: IAppProps) {
     return (
         <div className={classes.appContainer}>
             <Toast toasts={toasts} />

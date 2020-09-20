@@ -15,7 +15,7 @@ import Search from '../Search';
 
 import classes from './customers.module.css';
 
-interface ICustomersListProps {
+export interface ICustomersProps {
     customers: ICustomer[] | null;
     isLoading: boolean;
     getCustomers: Function;
@@ -23,13 +23,13 @@ interface ICustomersListProps {
     setUpdateCustomer: Function;
 }
 
-export function CustomersList({
+export function Customers({
     customers,
     isLoading,
     getCustomers,
     deleteCustomer,
     setUpdateCustomer,
-}: ICustomersListProps) {
+}: ICustomersProps) {
     useEffect(() => {
         getCustomers();
     }, [getCustomers]);
@@ -39,13 +39,11 @@ export function CustomersList({
     };
 
     const handleEdit = (selectedCustomerid: number) => {
-        if (customers && customers.length > 0) {
-            const selectedCustomer = customers.find(
-                (customer) => customer.id === selectedCustomerid
-            );
-            if (selectedCustomer) {
-                setUpdateCustomer(true, selectedCustomer as ICustomer);
-            }
+        const selectedCustomer = (customers as ICustomer[]).find(
+            (customer) => customer.id === selectedCustomerid
+        );
+        if (selectedCustomer) {
+            setUpdateCustomer(true, selectedCustomer as ICustomer);
         }
     };
 
@@ -68,7 +66,7 @@ export function CustomersList({
                 <Spinner />
             ) : (
                 <div className={classes.customersContainer}>
-                    {isLoading ? <Spinner /> : renderCustomers}
+                    {renderCustomers}
                 </div>
             )}
         </Fragment>
@@ -84,4 +82,4 @@ export default connect(mapStateToProps, {
     getCustomers,
     deleteCustomer,
     setUpdateCustomer,
-})(CustomersList);
+})(Customers);
