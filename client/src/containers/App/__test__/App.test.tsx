@@ -27,11 +27,9 @@ const toasts: IToast[] = [
 describe('App Component', () => {
     let wrapper: ReactWrapper;
     beforeEach(() => {
-        wrapper = mount(
-            <Root>
-                <App toasts={toasts} />
-            </Root>
-        );
+        wrapper = mount(<App toasts={toasts} />, {
+            wrappingComponent: Root,
+        });
     });
 
     afterEach(() => {

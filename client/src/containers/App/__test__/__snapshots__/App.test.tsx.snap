@@ -1,19 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App Component should render correctly 1`] = `
-<Root>
-  <Provider
-    store={
+<App
+  toasts={
+    Array [
       Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      }
-    }
+        "toastId": "1001",
+        "toastMessage": "1001 test message",
+        "toastType": "info",
+      },
+      Object {
+        "toastId": "1002",
+        "toastMessage": "1002 test message",
+        "toastType": "success",
+      },
+      Object {
+        "toastId": "1003",
+        "toastMessage": "1003 test message",
+        "toastType": "danger",
+      },
+    ]
+  }
+>
+  <div
+    className="appContainer"
   >
-    <App
+    <Toast
       toasts={
         Array [
           Object {
@@ -34,213 +46,187 @@ exports[`App Component should render correctly 1`] = `
         ]
       }
     >
-      <div
-        className="appContainer"
-      >
-        <Toast
-          toasts={
-            Array [
-              Object {
-                "toastId": "1001",
-                "toastMessage": "1001 test message",
-                "toastType": "info",
-              },
-              Object {
-                "toastId": "1002",
-                "toastMessage": "1002 test message",
-                "toastType": "success",
-              },
-              Object {
-                "toastId": "1003",
-                "toastMessage": "1003 test message",
-                "toastType": "danger",
-              },
-            ]
-          }
+      <div>
+        <div
+          className="toastAlert info"
+          key="1001"
         >
-          <div>
-            <div
-              className="toastAlert info"
-              key="1001"
-            >
-              1001 test message
-            </div>
-            <div
-              className="toastAlert success"
-              key="1002"
-            >
-              1002 test message
-            </div>
-            <div
-              className="toastAlert danger"
-              key="1003"
-            >
-              1003 test message
-            </div>
-          </div>
-        </Toast>
-        <Connect(CustomerForm)>
-          <CustomerForm
-            addCustomer={[Function]}
-            customers={null}
-            editCustomer={[Function]}
-            isEditing={false}
-            isLoading={true}
-            selectedCustomer={null}
-            setToast={[Function]}
-            setUpdateCustomer={[Function]}
-          >
-            <form
-              className="customerFormContainer"
-              onSubmit={[Function]}
-            >
-              <div
-                className="inputContainer"
-              >
-                <label
-                  htmlFor="firstName"
-                >
-                  First Name
-                </label>
-                <input
-                  className="inputText"
-                  id="firstName"
-                  name="firstName"
-                  onChange={[Function]}
-                  type="text"
-                  value=""
-                />
-              </div>
-              <div
-                className="inputContainer"
-              >
-                <label
-                  htmlFor="lastName"
-                >
-                  Last Name
-                </label>
-                <input
-                  className="inputText"
-                  id="lastName"
-                  name="lastName"
-                  onChange={[Function]}
-                  type="text"
-                  value=""
-                />
-              </div>
-              <div
-                className="inputContainer"
-              >
-                <label
-                  htmlFor="dob"
-                >
-                  Date Of Birth
-                </label>
-                <input
-                  className="inputText"
-                  id="dob"
-                  name="dob"
-                  onChange={[Function]}
-                  type="date"
-                  value=""
-                />
-              </div>
-              <div
-                className="buttonContainer"
-              >
-                <Button
-                  type="success"
-                >
-                  <button
-                    className="buttonContainer success"
-                  >
-                    Add
-                  </button>
-                </Button>
-                <Button
-                  handleClick={[Function]}
-                  type="cancel"
-                >
-                  <button
-                    className="buttonContainer cancel"
-                    onClick={[Function]}
-                  >
-                    Cancel
-                  </button>
-                </Button>
-              </div>
-            </form>
-          </CustomerForm>
-        </Connect(CustomerForm)>
-        <Connect(CustomersList)>
-          <CustomersList
-            customers={null}
-            deleteCustomer={[Function]}
-            getCustomers={[Function]}
-            isLoading={true}
-            setUpdateCustomer={[Function]}
-          >
-            <Connect(Search)>
-              <Search
-                searchCustomers={[Function]}
-              >
-                <div
-                  className="searchContainer"
-                >
-                  <form
-                    className="searchForm"
-                    onSubmit={[Function]}
-                  >
-                    <div
-                      className="searchInputContainer"
-                    >
-                      <input
-                        className="searchInput"
-                        onChange={[Function]}
-                        placeholder="Firstname or Lastname"
-                        type="text"
-                        value=""
-                      />
-                      <div
-                        className="searchInputIcon"
-                      >
-                        <i
-                          className="fas fa-search"
-                        />
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </Search>
-            </Connect(Search)>
-            <Spinner>
-              <div
-                className="spinnerContainer"
-              >
-                <div
-                  className="spinnerLine"
-                />
-                <div
-                  className="spinnerLine"
-                />
-                <div
-                  className="spinnerLine"
-                />
-                <div
-                  className="spinnerLine"
-                />
-                <div
-                  className="spinnerLine"
-                />
-                <div
-                  className="spinnerLine"
-                />
-              </div>
-            </Spinner>
-          </CustomersList>
-        </Connect(CustomersList)>
+          1001 test message
+        </div>
+        <div
+          className="toastAlert success"
+          key="1002"
+        >
+          1002 test message
+        </div>
+        <div
+          className="toastAlert danger"
+          key="1003"
+        >
+          1003 test message
+        </div>
       </div>
-    </App>
-  </Provider>
-</Root>
+    </Toast>
+    <Connect(CustomerForm)>
+      <CustomerForm
+        addCustomer={[Function]}
+        customers={null}
+        editCustomer={[Function]}
+        isEditing={false}
+        isLoading={true}
+        selectedCustomer={null}
+        setToast={[Function]}
+        setUpdateCustomer={[Function]}
+      >
+        <form
+          className="customerFormContainer"
+          onSubmit={[Function]}
+        >
+          <div
+            className="inputContainer"
+          >
+            <label
+              htmlFor="firstName"
+            >
+              First Name
+            </label>
+            <input
+              className="inputText"
+              id="firstName"
+              name="firstName"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="inputContainer"
+          >
+            <label
+              htmlFor="lastName"
+            >
+              Last Name
+            </label>
+            <input
+              className="inputText"
+              id="lastName"
+              name="lastName"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="inputContainer"
+          >
+            <label
+              htmlFor="dob"
+            >
+              Date Of Birth
+            </label>
+            <input
+              className="inputText"
+              id="dob"
+              name="dob"
+              onChange={[Function]}
+              type="date"
+              value=""
+            />
+          </div>
+          <div
+            className="buttonContainer"
+          >
+            <Button
+              type="success"
+            >
+              <button
+                className="buttonContainer success"
+              >
+                Add
+              </button>
+            </Button>
+            <Button
+              handleClick={[Function]}
+              type="cancel"
+            >
+              <button
+                className="buttonContainer cancel"
+                onClick={[Function]}
+              >
+                Cancel
+              </button>
+            </Button>
+          </div>
+        </form>
+      </CustomerForm>
+    </Connect(CustomerForm)>
+    <Connect(Customers)>
+      <Customers
+        customers={null}
+        deleteCustomer={[Function]}
+        getCustomers={[Function]}
+        isLoading={true}
+        setUpdateCustomer={[Function]}
+      >
+        <Connect(Search)>
+          <Search
+            searchCustomers={[Function]}
+          >
+            <div
+              className="searchContainer"
+            >
+              <form
+                className="searchForm"
+                onSubmit={[Function]}
+              >
+                <div
+                  className="searchInputContainer"
+                >
+                  <input
+                    className="searchInput"
+                    onChange={[Function]}
+                    placeholder="Firstname or Lastname"
+                    type="text"
+                    value=""
+                  />
+                  <div
+                    className="searchInputIcon"
+                  >
+                    <i
+                      className="fas fa-search"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </Search>
+        </Connect(Search)>
+        <Spinner>
+          <div
+            className="spinnerContainer"
+          >
+            <div
+              className="spinnerLine"
+            />
+            <div
+              className="spinnerLine"
+            />
+            <div
+              className="spinnerLine"
+            />
+            <div
+              className="spinnerLine"
+            />
+            <div
+              className="spinnerLine"
+            />
+            <div
+              className="spinnerLine"
+            />
+          </div>
+        </Spinner>
+      </Customers>
+    </Connect(Customers)>
+  </div>
+</App>
 `;
