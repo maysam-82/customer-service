@@ -1,6 +1,13 @@
 # Sample Customer Project
 
+## Project Description:
+
+- This is a project for get, post, update, delete and search customers.
+- It is developed with **mobile first** approach.
+
 ## Technologies:
+
+### Client
 
 -   React
 -   Redux
@@ -11,6 +18,14 @@
 -   Jest
 -   Enzyme
 -   React-test-renderer
+
+### Server
+
+- json-server
+
+### Dev
+
+- concurrently
 
 ## Run Application
 
