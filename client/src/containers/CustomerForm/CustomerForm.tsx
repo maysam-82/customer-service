@@ -13,7 +13,7 @@ import { IStoreState } from '../../redux/reducers';
 import { ICustomer } from '../../types/customers';
 
 import classes from './customerForm.module.css';
-interface ICustomerFormProps {
+export interface ICustomerFormProps {
     addCustomer: Function;
     setToast: Function;
     editCustomer: Function;
