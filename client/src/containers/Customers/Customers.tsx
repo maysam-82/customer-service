@@ -39,13 +39,11 @@ export function Customers({
     };
 
     const handleEdit = (selectedCustomerid: number) => {
-        if (customers && customers.length > 0) {
-            const selectedCustomer = customers.find(
-                (customer) => customer.id === selectedCustomerid
-            );
-            if (selectedCustomer) {
-                setUpdateCustomer(true, selectedCustomer as ICustomer);
-            }
+        const selectedCustomer = (customers as ICustomer[]).find(
+            (customer) => customer.id === selectedCustomerid
+        );
+        if (selectedCustomer) {
+            setUpdateCustomer(true, selectedCustomer as ICustomer);
         }
     };
 
@@ -68,7 +66,7 @@ export function Customers({
                 <Spinner />
             ) : (
                 <div className={classes.customersContainer}>
-                    {isLoading ? <Spinner /> : renderCustomers}
+                    {renderCustomers}
                 </div>
             )}
         </Fragment>
